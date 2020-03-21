@@ -16,17 +16,19 @@ while True:
         flag = False
         while L <= R and not flag:
             k = (L + R) // 2  # Якщо ввести 9,після першої операції к=6,після другої 10 і тд
-            count += 1  # лічильник операцій
+            count += 2  # лічильник операцій
             if masiv[k] == x:
                 flag = True
             elif masiv[k] < x:
+                count += 1
                 L = k + 1
             else:
+                count += 1
                 R = k - 1
         if not flag:
             print('Елемент не знайдено')
         else:
-            print(f'Елемент знайдено на позиції {k} за {count + 1} порівнянь')
+            print(f'Елемент знайдено на позиції {k} за {count} порівнянь')
         # Рандомні числа
         masiv1 = np.zeros(20, dtype=int)
         for i in range(20):
@@ -37,17 +39,19 @@ while True:
         flag1 = False
         while L1 <= R1 and not flag1:
             k1 = (L1 + R1) // 2
-            count1 += 1  # Лічильник для підрахунку кількості операцій
+            count1 += 2  # Лічильник для підрахунку кількості операцій
             if masiv1[k1] == x:
                 flag1 = True
             elif masiv1[k1] < x:
                 L1 = k1 + 1
+                count1 += 1
             else:
                 R1 = k1 - 1
+                count1 += 1
         if not flag1:
             print('Елемент не знайдено')
         else:
-            print(f'Елемент знайдено на позиції {k1} за {count1 + 1} порівнянь')
+            print(f'Елемент знайдено на позиції {k1} за {count1} порівнянь')
 
     print('Хочете повторити дії? Введіть так ,якщо ні - інше')
     answer = input('')
